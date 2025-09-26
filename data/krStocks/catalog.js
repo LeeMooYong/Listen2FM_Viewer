@@ -1,5 +1,5 @@
 // /plugins/krStocks/data/catalog.js
-export async function loadKRCatalog(url = "/data/krStocks/catalog.kr.json") {
+export async function loadKRCatalog(url = "data/krStocks/catalog.kr.json") {
     const withBust = url.includes("?") ? `${url}&v=${Date.now()}` : `${url}?v=${Date.now()}`;
     const res = await fetch(withBust, { cache: "no-store" });
     if (!res.ok) throw new Error(`catalog load failed: ${res.status}`);
