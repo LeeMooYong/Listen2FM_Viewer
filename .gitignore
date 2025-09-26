@@ -15,7 +15,6 @@ venv/
 *.pyc
 .env
 .env.*
-data/
 *.csv
 *.zip
 *.mp4

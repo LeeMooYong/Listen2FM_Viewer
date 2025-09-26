@@ -1,0 +1,162 @@
+// 2025. 09. 05: ETF는 지수와 업종에 투자한다.
+// Listen2FM_Viewer/data/usStocks/ETF/에 레버리지와 인버스 데이터를 수집/저장한다.
+// 아코디언 메뉴에서 레버리지/인버스(롱/솟)를 구분한다. 실행순서도 정할 수 있다.
+------------------------------------------------------------------------------------------------------
+Listen2FM_Viewer/
+└─ data/
+   └─ usStocks/
+      └─ ETF/
+         SPY_daily.json
+         SPY_weekly.json
+         SPY_monthly.json
+         SPY_30m.json
+         ...
+         SOXS_daily.json
+         SOXS_weekly.json
+         SOXS_monthly.json
+         SOXS_30m.json
+-----------------------------------------------------------------------------------------------------------
+
+
+1) 대상 ETF 확정 (롱/인버스 매핑)
+카테고리	           1x Long	     1x Inverse    	3x Long	  3x Inverse
+S&P 500	             SPY	         SH   	          SPXL	    SPXS
+Nasdaq-100	    QQQ     	PSQ	        TQQQ	    SQQQ
+Semiconductors      SOXX	 	                 SOXL  	   SOXS
+
+실무 수집 셋: SPY, SH, SPXL, SPXS, QQQ, PSQ, TQQQ, SQQQ, SOXX, SOXL, SOXS
+(SOXX 1x inverse는 일반적 대안이 없어 **SOXS(3x inverse)**로 커버)
+
+
+
+2) ETF list
+SPY
+SH
+SPXL
+SPXS
+QQQ
+PSQ
+TQQQ
+SQQQ
+SOXX
+SOXL
+SOXS
+
+
+
+
+
+
+Sample: NAVD_daily.json
+[
+  {
+    "time": 916963200,
+    "open": 0.0875,
+    "high": 0.0977,
+    "low": 0.0776,
+    "close": 0.082,
+    "volume": 1357235421.0
+  },
+  {
+    "time": 917222400,
+    "open": 0.0885,
+    "high": 0.0917,
+    "low": 0.082,
+    "close": 0.0906,
+    "volume": 255219582.0
+  },
+  {
+    "time": 917308800,
+    "open": 0.0917,
+    "high": 0.0935,
+    "low": 0.0823,
+    "close": 0.0836,
+    "volume": 171586273.0
+  },
+  {
+    "time": 917395200,
+    "open": 0.0839,
+    "high": 0.086,
+    "low": 0.0792,
+    "close": 0.0833,
+    "volume": 122174226.0
+  },
+  {
+    "time": 917481600,
+    "open": 0.0833,
+    "high": 0.0839,
+    "low": 0.0825,
+    "close": 0.0831,
+    "volume": 113750900.0
+  },
+  {
+    "time": 917568000,
+    "open": 0.0831,
+    "high": 0.0833,
+    "low": 0.0792,
+    "close": 0.0792,
+    "volume": 122006240.0
+  },
+
+
+
+
+
+
+
+
+
+Listen2FM_Viewer/data/list.json
+{
+  "crypto": [
+    { "symbol": "BTC", "exchange": "upbit", "name": "Bitcoin", "category": "crypto" },
+    { "symbol": "ETH", "exchange": "upbit", "name": "Ethereum", "category": "crypto" },
+    { "symbol": "XRP", "exchange": "upbit", "name": "XRP", "category": "crypto" }
+  ],
+  "etf": [
+    { "symbol": "SPY",  "category": "S&P500", "leverage": "1x", "direction": "long", "name": "SPDR S&P 500" },
+    { "symbol": "SH",   "category": "S&P500", "leverage": "1x", "direction": "inverse", "name": "ProShares Short S&P500" },
+    { "symbol": "SPXL", "category": "S&P500", "leverage": "3x", "direction": "long", "name": "Direxion Daily S&P500 Bull 3X" },
+    { "symbol": "SPXS", "category": "S&P500", "leverage": "3x", "direction": "inverse", "name": "Direxion Daily S&P500 Bear 3X" },
+    { "symbol": "QQQ",  "category": "NASDAQ100", "leverage": "1x", "direction": "long", "name": "Invesco QQQ Trust" },
+    { "symbol": "PSQ",  "category": "NASDAQ100", "leverage": "1x", "direction": "inverse", "name": "ProShares Short QQQ" },
+    { "symbol": "TQQQ", "category": "NASDAQ100", "leverage": "3x", "direction": "long", "name": "ProShares UltraPro QQQ" },
+    { "symbol": "SQQQ", "category": "NASDAQ100", "leverage": "3x", "direction": "inverse", "name": "ProShares UltraPro Short QQQ" },
+    { "symbol": "SOXX", "category": "Semiconductors", "leverage": "1x", "direction": "long", "name": "iShares Semiconductor ETF" },
+    { "symbol": "SOXL", "category": "Semiconductors", "leverage": "3x", "direction": "long", "name": "Direxion Daily Semiconductor Bull 3X" },
+    { "symbol": "SOXS", "category": "Semiconductors", "leverage": "3x", "direction": "inverse", "name": "Direxion Daily Semiconductor Bear 3X" }
+  ],
+  "stocks": [
+    { "symbol": "AAPL", "exchange": "NASDAQ", "name": "Apple Inc." },
+    { "symbol": "MSFT", "exchange": "NASDAQ", "name": "Microsoft Corp." },
+    { "symbol": "NVDA", "exchange": "NASDAQ", "name": "NVIDIA Corp." }
+  ],
+  "economic": [
+    { "symbol": "pce", "name": "Personal Consumption Expenditures", "frequency": "monthly", "source": "FRED" },
+    { "symbol": "ust10y", "name": "US 10Y Treasury Yield", "frequency": "daily", "source": "Investing.com" }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

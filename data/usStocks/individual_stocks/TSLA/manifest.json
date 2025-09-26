@@ -1,0 +1,35 @@
+{
+  "symbol": "TSLA",
+  "source": "yfinance",
+  "generated_at_utc": "2025-09-13T07:13:42Z",
+  "prepost_intraday": true,
+  "intervals": {
+    "daily": "1d",
+    "weekly": "rollup(W-MON from 1d)",
+    "monthly": "rollup(ME from 1d)",
+    "30m": "30m prepost",
+    "60m": "60m prepost (fallback: 30m→60m)"
+  },
+  "counts": {
+    "daily": 3826,
+    "weekly": 794,
+    "monthly": 184,
+    "30m": 1915,
+    "60m": 1017
+  },
+  "latest": {
+    "daily": 1757635200,
+    "weekly": 1757289600,
+    "monthly": 1756598400,
+    "30m": 1757721600,
+    "60m": 1757721600
+  },
+  "files": {
+    "daily": "TSLA_daily.json",
+    "weekly": "TSLA_weekly.json",
+    "monthly": "TSLA_monthly.json",
+    "30m": "TSLA_30m.json",
+    "60m": "TSLA_60m.json"
+  },
+  "notes": "raw OHLC (auto_adjust=False); time=UTC epoch seconds"
+}

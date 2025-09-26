@@ -1,0 +1,35 @@
+{
+  "symbol": "AAPL",
+  "source": "yfinance",
+  "generated_at_utc": "2025-09-13T07:13:24Z",
+  "prepost_intraday": true,
+  "intervals": {
+    "daily": "1d",
+    "weekly": "rollup(W-MON from 1d)",
+    "monthly": "rollup(ME from 1d)",
+    "30m": "30m prepost",
+    "60m": "60m prepost (fallback: 30m→60m)"
+  },
+  "counts": {
+    "daily": 11279,
+    "weekly": 2336,
+    "monthly": 538,
+    "30m": 1914,
+    "60m": 1016
+  },
+  "latest": {
+    "daily": 1757635200,
+    "weekly": 1757289600,
+    "monthly": 1756598400,
+    "30m": 1757719800,
+    "60m": 1757718000
+  },
+  "files": {
+    "daily": "AAPL_daily.json",
+    "weekly": "AAPL_weekly.json",
+    "monthly": "AAPL_monthly.json",
+    "30m": "AAPL_30m.json",
+    "60m": "AAPL_60m.json"
+  },
+  "notes": "raw OHLC (auto_adjust=False); time=UTC epoch seconds"
+}
